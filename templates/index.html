@@ -67,6 +67,7 @@ nav {
   min-height:100vh;
   display:grid; grid-template-columns:1fr 1fr;
   padding-top:68px;
+  overflow-x:hidden;
 }
 .hero-left {
   background: var(--forest);
@@ -388,13 +389,53 @@ footer {
 @keyframes spin { to { transform:rotate(360deg); } }
 
 @media(max-width:960px) {
-  .hero { grid-template-columns:1fr; }
-  .hero-right { display:none; }
+  /* Hero */
+  .hero { grid-template-columns:1fr; min-height:auto; }
+  .hero-left { padding:90px 20px 36px; }
+  .hero-right { display:flex !important; flex-direction:column; }
+  .hero h1 { font-size:38px; }
+  .hero-sub { font-size:14px; }
+
+  /* Search box stacks */
+  .search-row { grid-template-columns:1fr; }
+  .search-row select, .search-row input { width:100%; }
+
+  /* Hero buttons stack */
+  .hero-btns { flex-direction:column; }
+  .hero-btns a { text-align:center; }
+
+  /* Agent card in hero — compact on mobile */
+  .hero-right > div:last-child { padding:24px 20px; }
+  .hero-right > div:last-child > div[style*="grid-template-columns"] {
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  /* Nav */
   nav { padding:0 16px; }
   .nav-links { display:none; }
-  .section { padding:48px 20px; }
-  .agent-section, .contact-wrap { grid-template-columns:1fr; }
-  footer { flex-direction:column; text-align:center; }
+  .btn-nav { padding:8px 14px; font-size:11px; }
+
+  /* Sections */
+  .section { padding:40px 16px; }
+  .prop-grid { grid-template-columns:1fr; }
+  .market-grid { grid-template-columns:1fr 1fr; }
+  .why-grid { grid-template-columns:1fr; }
+  .filter-bar { flex-direction:column; }
+  .filter-select { width:100%; }
+
+  /* Agent + contact */
+  .agent-section { grid-template-columns:1fr; }
+  .agent-photo { aspect-ratio:4/3; max-height:320px; }
+  .agent-badge { right:8px; bottom:-10px; }
+  .contact-wrap { grid-template-columns:1fr; }
+
+  /* Market ticker */
+  .market-ticker { overflow-x:auto; flex-wrap:nowrap; padding:10px 16px; }
+  .ticker-item { padding:0 16px; }
+
+  /* Stats 2x2 → still 2 cols on mobile, just smaller */
+  footer { flex-direction:column; text-align:center; gap:10px; padding:20px 16px; }
+  .foot-links { justify-content:center; }
 }
 </style>
 </head>
@@ -445,12 +486,12 @@ footer {
           <option value="500000">Under $500k</option>
         </select>
       </div>
-      <button class="btn-search" onclick="heroSearch()">Search Available Homes →</button>
+      <button class="btn-search" onclick="heroSearch()">Search Homes →</button>
     </div>
   </div>
 
   <!-- Right: Agent card + live stats -->
-  <div class="hero-right" style="padding:0;">
+  <div class="hero-right" style="padding:0;display:flex;flex-direction:column;overflow:hidden;min-width:0;max-width:100%;">
     <!-- Market ticker -->
     <div class="market-ticker" id="hero-ticker">
       <div class="ticker-item"><span class="ticker-city">Lexington</span><span class="ticker-price" id="t-lex">—</span><span class="ticker-count" id="t-lex-c">loading</span></div>
