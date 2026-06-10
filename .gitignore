@@ -1,0 +1,7 @@
+﻿.env
+__pycache__/
+*.pyc
+.tmp/
+static/images/headshots/
+*.png
+screenshot.py

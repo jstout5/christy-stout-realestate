@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christy Stout · Real Estate Agent · Central Kentucky | ChristyStout.com</title>
+<meta name="description" content="Christy Stout is a licensed real estate agent serving Lexington, Richmond, Georgetown and Central Kentucky. Live MLS listings, market data, and personal service. Call (859) 469-9429.">
+<meta name="geo.region" content="US-KY">
+<meta name="geo.placename" content="Lexington, Kentucky">
+<meta property="og:title" content="Christy Stout · Real Estate · Lexington, KY">
+<meta property="og:description" content="Buy or sell your home in Central Kentucky with a trusted local agent. Live listings, market data, and personal service.">
+<link rel="canonical" href="https://christystout.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest: #1c3a28;
+  --sage:   #4a7a5a;
+  --gold:   #c8a84b;
+  --cream:  #f8f4ee;
+  --warm:   #f2ece2;
+  --text:   #1a1a1a;
+  --muted:  #5a6a5a;
+  --white:  #ffffff;
+  --border: rgba(28,58,40,0.1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',sans-serif; color:var(--text); background:var(--white); overflow-x:hidden; }
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:rgba(255,255,255,0.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(12px);
+  height:68px; padding:0 40px;
+  display:flex; align-items:center; justify-content:space-between;
+  box-shadow:0 2px 16px rgba(0,0,0,0.05);
+}
+.logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px; font-weight:700; color:var(--forest);
+  letter-spacing:0.5px; text-decoration:none;
+}
+.logo em { color:var(--gold); font-style:italic; }
+.nav-links { display:flex; gap:28px; align-items:center; }
+.nav-links a {
+  font-size:13px; font-weight:500; color:var(--muted);
+  text-decoration:none; transition:color 0.15s;
+}
+.nav-links a:hover { color:var(--forest); }
+.nav-phone {
+  font-size:13px; font-weight:700; color:var(--forest);
+  text-decoration:none;
+}
+.btn-nav {
+  background:var(--forest); color:#fff;
+  font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
+  padding:9px 20px; border-radius:3px; text-decoration:none; transition:opacity 0.15s;
+}
+.btn-nav:hover { opacity:0.85; }
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  display:grid; grid-template-columns:1fr 1fr;
+  padding-top:68px;
+}
+.hero-left {
+  background: var(--forest);
+  padding:72px 56px;
+  display:flex; flex-direction:column; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.hero-left::before {
+  content:''; position:absolute; inset:0;
+  background:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?w=900&q=70') center/cover;
+  opacity:0.08;
+}
+.hero-eyebrow {
+  font-size:10px; font-weight:600; letter-spacing:4px;
+  text-transform:uppercase; color:var(--gold); margin-bottom:22px;
+  position:relative;
+}
+.hero h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,5vw,72px); font-weight:700;
+  line-height:1.0; color:#fff; margin-bottom:22px;
+  position:relative;
+}
+.hero h1 em { color:var(--gold); font-style:italic; }
+.hero-sub {
+  font-size:15px; line-height:1.8; color:rgba(255,255,255,0.6);
+  max-width:420px; margin-bottom:40px; position:relative;
+}
+
+/* Search bar */
+.search-box {
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:8px; padding:20px 24px;
+  position:relative;
+}
+.search-title {
+  font-size:10px; font-weight:700; letter-spacing:2px;
+  text-transform:uppercase; color:var(--gold); margin-bottom:14px;
+}
+.search-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:12px; }
+.search-row select, .search-row input {
+  background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+  border-radius:5px; color:#fff; font-family:'Inter',sans-serif;
+  font-size:13px; padding:10px 12px; outline:none; transition:border-color 0.2s;
+}
+.search-row select:focus, .search-row input:focus { border-color:var(--gold); }
+.search-row select option { background:var(--forest); color:#fff; }
+.search-row select::placeholder, .search-row input::placeholder { color:rgba(255,255,255,0.35); }
+.btn-search {
+  width:100%; background:var(--gold); color:var(--forest);
+  border:none; border-radius:5px; padding:12px;
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; cursor:pointer;
+  transition:opacity 0.15s;
+}
+.btn-search:hover { opacity:0.88; }
+
+/* Hero right — agent panel */
+.hero-right {
+  background:var(--cream);
+  display:flex; flex-direction:column;
+  padding:40px;
+}
+
+/* Market ticker */
+.market-ticker {
+  background:var(--forest);
+  padding:10px 20px;
+  display:flex; gap:0; overflow:hidden;
+}
+.ticker-item {
+  display:flex; align-items:center; gap:20px;
+  padding:0 32px; border-right:1px solid rgba(255,255,255,0.08);
+  white-space:nowrap;
+}
+.ticker-item:last-child { border:none; }
+.ticker-city {
+  font-size:10px; font-weight:700; letter-spacing:2px;
+  text-transform:uppercase; color:var(--gold);
+}
+.ticker-price { font-size:14px; font-weight:600; color:#fff; margin-left:8px; }
+.ticker-count { font-size:11px; color:rgba(255,255,255,0.4); margin-left:6px; }
+
+/* ── SECTION ── */
+.section { padding:72px 40px; }
+.section-bg { background:var(--cream); }
+.section-dark { background:var(--forest); }
+
+.eyebrow {
+  font-size:10px; font-weight:600; letter-spacing:4px;
+  text-transform:uppercase; color:var(--gold); margin-bottom:12px;
+}
+.section-h {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,3.5vw,44px); font-weight:700;
+  color:var(--forest); line-height:1.1; margin-bottom:12px;
+}
+.section-dark .section-h { color:#fff; }
+.section-sub { font-size:15px; color:var(--muted); line-height:1.7; max-width:540px; }
+.section-dark .section-sub { color:rgba(255,255,255,0.5); }
+.sec-head { margin-bottom:44px; }
+.sec-head-flex {
+  display:flex; align-items:flex-end; justify-content:space-between;
+  margin-bottom:44px; flex-wrap:wrap; gap:16px;
+}
+
+/* ── MARKET DASHBOARD ── */
+.market-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:20px; margin-bottom:48px;
+}
+.market-card {
+  background:#fff; border:1px solid var(--border);
+  border-radius:10px; padding:24px 22px;
+  transition:box-shadow 0.2s;
+}
+.market-card:hover { box-shadow:0 4px 20px rgba(28,58,40,0.1); }
+.market-card-city {
+  font-size:10px; font-weight:700; letter-spacing:2px;
+  text-transform:uppercase; color:var(--sage); margin-bottom:12px;
+}
+.market-median {
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px; font-weight:700; color:var(--forest); line-height:1;
+  margin-bottom:8px;
+}
+.market-row {
+  display:flex; justify-content:space-between;
+  font-size:11px; color:var(--muted); margin-top:6px;
+}
+.market-val { font-weight:600; color:var(--text); }
+
+/* ── PROPERTY CARDS ── */
+.prop-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:24px;
+}
+.prop-card {
+  background:#fff; border:1px solid var(--border);
+  border-radius:10px; overflow:hidden;
+  transition:all 0.22s;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+.prop-card:hover { transform:translateY(-4px); box-shadow:0 12px 36px rgba(28,58,40,0.12); }
+.prop-img {
+  height:210px; overflow:hidden;
+  background:linear-gradient(135deg,var(--forest),var(--sage));
+  display:flex; align-items:center; justify-content:center;
+  position:relative; font-size:48px;
+}
+.prop-img img { width:100%; height:100%; object-fit:cover; }
+.prop-tag {
+  position:absolute; top:12px; left:12px;
+  font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+  padding:4px 10px; border-radius:2px;
+}
+.tag-new  { background:var(--gold); color:var(--forest); }
+.tag-deal { background:#e31837; color:#fff; }
+.tag-lux  { background:var(--forest); color:var(--gold); }
+.prop-days {
+  position:absolute; bottom:12px; right:12px;
+  background:rgba(0,0,0,0.6); color:#fff;
+  font-size:9px; font-weight:600; letter-spacing:1px;
+  padding:3px 8px; border-radius:2px;
+}
+.prop-body { padding:18px 20px 20px; }
+.prop-price {
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px; font-weight:700; color:var(--forest);
+  margin-bottom:4px;
+}
+.prop-deal-badge {
+  display:inline-block; background:rgba(231,24,55,0.08);
+  border:1px solid rgba(231,24,55,0.2);
+  color:#c01020; font-size:10px; font-weight:700;
+  padding:2px 8px; border-radius:2px; margin-left:8px;
+}
+.prop-addr { font-size:13px; color:var(--muted); margin-bottom:10px; }
+.prop-specs { display:flex; gap:14px; font-size:12px; color:var(--muted); margin-bottom:14px; }
+.prop-ppsf {
+  font-size:11px; font-weight:600;
+  color:var(--sage); letter-spacing:0.5px;
+}
+.prop-cta {
+  display:block; text-align:center;
+  border:1px solid var(--border); border-radius:4px;
+  padding:9px; font-size:11px; font-weight:600;
+  letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--forest); text-decoration:none; transition:all 0.2s;
+  margin-top:12px;
+}
+.prop-cta:hover { background:var(--forest); color:#fff; border-color:var(--forest); }
+
+/* Skeleton loader */
+.skel { background:linear-gradient(90deg,#f0f0f0 25%,#e8e8e8 50%,#f0f0f0 75%); background-size:200% 100%; animation:shimmer 1.3s infinite; border-radius:4px; }
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+.skel-card { height:340px; border-radius:10px; }
+
+/* ── FILTERS ── */
+.filter-bar {
+  display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px;
+}
+.filter-select {
+  background:#fff; border:1px solid var(--border);
+  border-radius:5px; color:var(--text); font-family:'Inter',sans-serif;
+  font-size:13px; padding:9px 14px; outline:none; cursor:pointer;
+  transition:border-color 0.2s;
+}
+.filter-select:focus { border-color:var(--sage); }
+.filter-select option { background:#fff; }
+.btn-filter {
+  background:var(--forest); color:#fff; border:none;
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:600;
+  letter-spacing:1px; text-transform:uppercase;
+  padding:9px 22px; border-radius:5px; cursor:pointer;
+}
+.result-count { font-size:13px; color:var(--muted); align-self:center; }
+
+/* ── AGENT PROFILE ── */
+.agent-section {
+  display:grid; grid-template-columns:380px 1fr; gap:64px;
+  align-items:center; max-width:1100px; margin:0 auto;
+}
+.agent-photo-wrap {
+  position:relative;
+}
+.agent-photo {
+  width:100%; aspect-ratio:3/4; border-radius:8px; overflow:hidden;
+  background:linear-gradient(135deg,#1c3a28,#4a7a5a);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:80px; font-weight:700; color:rgba(200,168,75,0.5);
+}
+.agent-photo img { width:100%; height:100%; object-fit:cover; }
+.agent-badge {
+  position:absolute; bottom:-16px; right:-16px;
+  background:var(--gold); border-radius:8px;
+  padding:16px 20px; text-align:center;
+}
+.agent-badge-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px; font-weight:700; color:var(--forest); line-height:1;
+}
+.agent-badge-lbl { font-size:9px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--forest); opacity:0.7; }
+.agent-info h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px; font-weight:700; color:var(--forest); margin-bottom:6px;
+}
+.agent-title-str { font-size:12px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:24px; }
+.agent-bio { font-size:15px; line-height:1.9; color:var(--muted); margin-bottom:28px; }
+.agent-details { display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
+.agent-detail { display:flex; gap:12px; align-items:center; font-size:14px; color:var(--muted); }
+.agent-detail a { color:var(--forest); font-weight:600; text-decoration:none; }
+.cert-strip { display:flex; gap:12px; flex-wrap:wrap; }
+.cert-pill {
+  background:var(--cream); border:1px solid var(--border);
+  border-radius:4px; padding:6px 14px;
+  font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+  color:var(--sage);
+}
+
+/* ── CONTACT ── */
+.contact-wrap {
+  display:grid; grid-template-columns:1fr 1fr; gap:64px;
+  max-width:1000px; margin:0 auto;
+}
+.contact-form input, .contact-form select, .contact-form textarea {
+  width:100%; border:1px solid rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.07);
+  border-radius:5px; color:#fff; font-family:'Inter',sans-serif;
+  font-size:14px; padding:12px 15px; outline:none; margin-bottom:12px;
+  transition:border-color 0.2s;
+}
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+  border-color:var(--gold);
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder { color:rgba(255,255,255,0.3); }
+.contact-form select option { background:var(--forest); }
+.btn-submit {
+  width:100%; background:var(--gold); color:var(--forest);
+  border:none; border-radius:5px; padding:14px;
+  font-family:'Inter',sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase; cursor:pointer;
+}
+.btn-submit:hover { opacity:0.88; }
+.contact-left h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px; font-weight:700; color:#fff; margin-bottom:14px;
+}
+.contact-left p { font-size:14px; color:rgba(255,255,255,0.55); line-height:1.8; margin-bottom:28px; }
+.c-detail { display:flex; gap:12px; margin-bottom:14px; font-size:14px; color:rgba(255,255,255,0.6); }
+.c-detail a { color:var(--gold); text-decoration:none; }
+#c-msg { margin-top:12px; font-size:13px; display:none; color:var(--gold); font-style:italic; }
+
+/* ── MLS NOTE ── */
+.mls-note {
+  background:rgba(200,168,75,0.08); border:1px solid rgba(200,168,75,0.2);
+  border-radius:6px; padding:14px 18px; font-size:12px;
+  color:var(--muted); line-height:1.6; margin-top:20px;
+}
+.mls-note strong { color:var(--forest); }
+
+/* ── FOOTER ── */
+footer {
+  background:#111f18; padding:28px 40px;
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:12px;
+}
+.foot-brand { font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:700; color:rgba(255,255,255,0.5); }
+.foot-brand em { color:var(--gold); font-style:italic; }
+.foot-legal { font-size:10px; color:rgba(255,255,255,0.2); line-height:1.6; text-align:center; }
+.foot-links a { font-size:11px; color:rgba(255,255,255,0.25); text-decoration:none; margin-left:16px; }
+.foot-links a:hover { color:var(--gold); }
+
+/* Spinner */
+.spinner { display:inline-block; width:18px; height:18px; border:2px solid rgba(200,168,75,0.3); border-top-color:var(--gold); border-radius:50%; animation:spin 0.7s linear infinite; vertical-align:middle; margin-right:8px; }
+@keyframes spin { to { transform:rotate(360deg); } }
+
+@media(max-width:960px) {
+  .hero { grid-template-columns:1fr; }
+  .hero-right { display:none; }
+  nav { padding:0 16px; }
+  .nav-links { display:none; }
+  .section { padding:48px 20px; }
+  .agent-section, .contact-wrap { grid-template-columns:1fr; }
+  footer { flex-direction:column; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo"><em>Christy</em> Stout</a>
+  <div class="nav-links">
+    <a href="#search">Search Homes</a>
+    <a href="#deals">Best Deals</a>
+    <a href="#market">Market Data</a>
+    <a href="#about">About</a>
+    <a href="tel:8594699429" class="nav-phone">(859) 469-9429</a>
+  </div>
+  <a href="#contact" class="btn-nav">Contact Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Central Kentucky Real Estate · Licensed Agent</div>
+    <h1>Your Home.<br>Your <em>Story.</em><br>My Mission.</h1>
+    <p class="hero-sub">Buying or selling in Lexington, Richmond, Georgetown, Versailles — I bring personal service, local expertise, and real results to every transaction.</p>
+
+    <div class="search-box">
+      <div class="search-title">🔍 Find Your Next Home</div>
+      <div class="search-row">
+        <select id="h-city">
+          <option value="Lexington">Lexington</option>
+          <option value="Richmond">Richmond</option>
+          <option value="Georgetown">Georgetown</option>
+          <option value="Versailles">Versailles</option>
+          <option value="Nicholasville">Nicholasville</option>
+          <option value="Winchester">Winchester</option>
+        </select>
+        <select id="h-beds">
+          <option value="0">Any Beds</option>
+          <option value="2">2+ Beds</option>
+          <option value="3">3+ Beds</option>
+          <option value="4">4+ Beds</option>
+        </select>
+        <select id="h-price">
+          <option value="0">Any Price</option>
+          <option value="200000">Under $200k</option>
+          <option value="300000">Under $300k</option>
+          <option value="400000">Under $400k</option>
+          <option value="500000">Under $500k</option>
+        </select>
+      </div>
+      <button class="btn-search" onclick="heroSearch()">Search Available Homes →</button>
+    </div>
+  </div>
+
+  <!-- Right: Agent card + live stats -->
+  <div class="hero-right" style="padding:0;">
+    <!-- Market ticker -->
+    <div class="market-ticker" id="hero-ticker">
+      <div class="ticker-item"><span class="ticker-city">Lexington</span><span class="ticker-price" id="t-lex">—</span><span class="ticker-count" id="t-lex-c">loading</span></div>
+      <div class="ticker-item"><span class="ticker-city">Richmond</span><span class="ticker-price" id="t-ric">—</span><span class="ticker-count" id="t-ric-c"></span></div>
+      <div class="ticker-item"><span class="ticker-city">Georgetown</span><span class="ticker-price" id="t-geo">—</span><span class="ticker-count" id="t-geo-c"></span></div>
+    </div>
+
+    <!-- Agent profile card -->
+    <div style="padding:40px; display:flex; flex-direction:column; height:100%; justify-content:center; background:var(--cream);">
+      <div style="text-align:center; margin-bottom:32px;">
+        <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--forest),var(--sage));margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--gold);border:4px solid var(--gold);overflow:hidden;">
+          <img src="/static/images/headshots/christy.jpg" alt="Christy Stout" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+          CS
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--forest);">Christy Stout</div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-top:4px;">Licensed KY Real Estate Agent</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:6px;">Bluegrass Property Exchange</div>
+      </div>
+
+      <!-- Live market stats 2x2 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px;">
+        <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--forest);" id="stat-listings">—</div>
+          <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:3px;">Active Listings</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--forest);" id="stat-median">—</div>
+          <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:3px;">Median Price</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--forest);" id="stat-ppsf">—</div>
+          <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:3px;">Avg $/SqFt</div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--forest);" id="stat-dom">—</div>
+          <div style="font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:3px;">Avg Days on Market</div>
+        </div>
+      </div>
+
+      <a href="tel:8594699429" style="display:block;text-align:center;background:var(--forest);color:#fff;padding:14px;border-radius:5px;font-size:16px;font-weight:600;text-decoration:none;letter-spacing:0.5px;">
+        📞 (859) 469-9429
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET TICKER MOBILE -->
+<div class="market-ticker" id="market-ticker-bar" style="display:none;">
+  <div class="ticker-item"><span class="ticker-city">Lex</span><span class="ticker-price" id="mt-lex">—</span></div>
+  <div class="ticker-item"><span class="ticker-city">Richmond</span><span class="ticker-price" id="mt-ric">—</span></div>
+</div>
+
+<!-- BEST DEALS -->
+<section class="section section-bg" id="deals">
+  <div class="sec-head-flex">
+    <div>
+      <div class="eyebrow">🔥 Lowest Price Per Square Foot</div>
+      <div class="section-h">Best Value Homes Right Now</div>
+      <p class="section-sub">Homes with the most house for your money — ranked by $/sqft across Central Kentucky.</p>
+    </div>
+  </div>
+  <div class="prop-grid" id="deals-grid">
+    <div class="skel skel-card"></div>
+    <div class="skel skel-card"></div>
+    <div class="skel skel-card"></div>
+    <div class="skel skel-card"></div>
+  </div>
+  <div class="mls-note">
+    <strong>Data source:</strong> Redfin MLS — updated every 10 minutes. For complete MLS access including off-market and pocket listings,
+    <a href="#contact" style="color:var(--sage);font-weight:600;">contact Christy directly</a>.
+    Full IDX integration with LBAR (Lexington-Bluegrass MLS) available — <strong>connecting to the full MLS is the next step</strong>.
+  </div>
+</section>
+
+<!-- NEW LISTINGS -->
+<section class="section" id="new">
+  <div class="sec-head-flex">
+    <div>
+      <div class="eyebrow">Just Listed · Last 7 Days</div>
+      <div class="section-h">New on the Market</div>
+    </div>
+    <a href="https://bluegrasspropertyexchange.com/property-search/" target="_blank"
+      style="font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--forest);text-decoration:none;border:1px solid var(--border);padding:9px 18px;border-radius:4px;">
+      Search All Listings →
+    </a>
+  </div>
+  <div class="prop-grid" id="new-grid">
+    <div class="skel skel-card"></div>
+    <div class="skel skel-card"></div>
+    <div class="skel skel-card"></div>
+  </div>
+</section>
+
+<!-- SEARCH / BROWSE -->
+<section class="section section-bg" id="search">
+  <div class="sec-head">
+    <div class="eyebrow">Browse Listings</div>
+    <div class="section-h">Search by Area & Criteria</div>
+  </div>
+  <div class="filter-bar">
+    <select class="filter-select" id="f-city" onchange="applyFilters()">
+      <option value="Lexington">Lexington</option>
+      <option value="Richmond">Richmond</option>
+      <option value="Georgetown">Georgetown</option>
+      <option value="Versailles">Versailles</option>
+      <option value="Nicholasville">Nicholasville</option>
+    </select>
+    <select class="filter-select" id="f-beds" onchange="applyFilters()">
+      <option value="0">Any Beds</option>
+      <option value="2">2+ Beds</option>
+      <option value="3">3+ Beds</option>
+      <option value="4">4+ Beds</option>
+    </select>
+    <select class="filter-select" id="f-max" onchange="applyFilters()">
+      <option value="0">Any Price</option>
+      <option value="200000">Under $200k</option>
+      <option value="300000">Under $300k</option>
+      <option value="400000">Under $400k</option>
+      <option value="500000">Under $500k</option>
+      <option value="750000">Under $750k</option>
+    </select>
+    <select class="filter-select" id="f-sort" onchange="applyFilters()">
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+      <option value="days-asc">Newest First</option>
+    </select>
+    <span class="result-count" id="result-count"></span>
+  </div>
+  <div class="prop-grid" id="search-grid">
+    <div class="skel skel-card"></div>
+    <div class="skel skel-card"></div>
+    <div class="skel skel-card"></div>
+    <div class="skel skel-card"></div>
+    <div class="skel skel-card"></div>
+    <div class="skel skel-card"></div>
+  </div>
+</section>
+
+<!-- MARKET DATA -->
+<section class="section" id="market">
+  <div class="sec-head">
+    <div class="eyebrow">Live Market Intelligence</div>
+    <div class="section-h">Central Kentucky Market Snapshot</div>
+    <p class="section-sub">Current median prices, active listing counts, and average $/sqft — refreshed every 10 minutes from live MLS data.</p>
+  </div>
+  <div class="market-grid" id="market-grid">
+    <div class="skel" style="height:130px;border-radius:10px;"></div>
+    <div class="skel" style="height:130px;border-radius:10px;"></div>
+    <div class="skel" style="height:130px;border-radius:10px;"></div>
+  </div>
+</section>
+
+<!-- ABOUT CHRISTY -->
+<section class="section section-bg" id="about">
+  <div class="agent-section">
+    <div class="agent-photo-wrap">
+      <div class="agent-photo">
+        <img src="/static/images/headshots/christy.jpg" alt="Christy Stout" onerror="this.style.display='none'">
+        CS
+      </div>
+      <div class="agent-badge">
+        <div class="agent-badge-num">KY</div>
+        <div class="agent-badge-lbl">Licensed</div>
+      </div>
+    </div>
+    <div class="agent-info">
+      <div class="eyebrow">Your Agent</div>
+      <h2>Christy Stout</h2>
+      <div class="agent-title-str">Licensed KY Real Estate Agent · Bluegrass Property Exchange</div>
+      <p class="agent-bio">
+        Central Kentucky is my home — and I take that personally. Whether you're buying your first house, upsizing for a growing family, downsizing into retirement, or selling an investment property, I'll be with you every step of the way with honest advice and real local knowledge.
+        <br><br>
+        At Bluegrass Property Exchange, I have access to the full Central KY MLS, a team of 20+ agents, and the tools to price your home right and find you the best deals on the market.
+      </p>
+      <div class="agent-details">
+        <div class="agent-detail">📞 <a href="tel:8594699429">(859) 469-9429</a></div>
+        <div class="agent-detail">🌐 <a href="https://bluegrasspropertyexchange.com" target="_blank">bluegrasspropertyexchange.com</a></div>
+        <div class="agent-detail">📍 Serving all of Central Kentucky</div>
+      </div>
+      <div class="cert-strip">
+        <span class="cert-pill">KY Licensed</span>
+        <span class="cert-pill">Bluegrass Property Exchange</span>
+        <span class="cert-pill">LBAR Member</span>
+        <span class="cert-pill">Equal Housing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-dark" id="contact">
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <div class="eyebrow">Get In Touch</div>
+      <h3>Let's Find Your Home</h3>
+      <p>No pressure. Just a conversation. Whether you're ready to buy, thinking about selling, or just want to know what your home is worth — I'd love to hear from you.</p>
+      <div class="c-detail">📞 <a href="tel:8594699429">(859) 469-9429</a></div>
+      <div class="c-detail">📧 <a href="mailto:criggs4568@gmail.com">criggs4568@gmail.com</a></div>
+      <div class="c-detail">🌐 <a href="https://bluegrasspropertyexchange.com" target="_blank">bluegrasspropertyexchange.com</a></div>
+      <div class="c-detail">📍 Lexington, KY · Serving Central Kentucky</div>
+    </div>
+    <div class="contact-form">
+      <input id="c-name"  type="text"  placeholder="Your Name *">
+      <input id="c-email" type="email" placeholder="Email Address *">
+      <input id="c-phone" type="tel"   placeholder="Phone Number">
+      <select id="c-type">
+        <option value="">I want to... *</option>
+        <option>Buy a Home</option>
+        <option>Sell My Home</option>
+        <option>Buy & Sell</option>
+        <option>Get a Free Home Valuation</option>
+        <option>Ask a Question</option>
+      </select>
+      <textarea id="c-msg" rows="4" placeholder="Tell me what you're looking for..."></textarea>
+      <button class="btn-submit" onclick="submitContact()">Send Message →</button>
+      <div id="c-resp"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand"><em>Christy</em> Stout · Real Estate Agent</div>
+  <div class="foot-legal">
+    © 2026 Christy Stout · Bluegrass Property Exchange · (859) 469-9429<br>
+    Data sourced from Redfin MLS. All listings subject to change. Equal Housing Opportunity. KY Licensed.
+  </div>
+  <div class="foot-links">
+    <a href="https://bluegrasspropertyexchange.com" target="_blank">BPE</a>
+    <a href="#search">Search</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+// ── UTILS ──────────────────────────────────────────────────────────────────
+const fmt  = n => n >= 1000000 ? '$' + (n/1000000).toFixed(2) + 'M'
+                : n >= 1000    ? '$' + Math.round(n/1000) + 'K'
+                : '$' + n.toLocaleString();
+const fmtF = n => '$' + n.toLocaleString();
+
+function propCard(h, badge='') {
+  const deal = h.ppsf && h.ppsf < 120 ? '<span class="prop-deal-badge">💰 Best Value</span>' : '';
+  const tag  = badge === 'new'  ? '<div class="prop-tag tag-new">New Listing</div>'
+             : badge === 'deal' ? '<div class="prop-tag tag-deal">Best Deal</div>'
+             : badge === 'lux'  ? '<div class="prop-tag tag-lux">Luxury</div>'
+             : '';
+  const days = h.days_on > 0 ? `<div class="prop-days">${h.days_on}d on market</div>` : '';
+  return `<div class="prop-card">
+    <div class="prop-img">🏡${tag}${days}</div>
+    <div class="prop-body">
+      <div class="prop-price">${fmtF(h.price)}${deal}</div>
+      <div class="prop-addr">${h.address}</div>
+      <div class="prop-specs">
+        ${h.beds ? `<span>🛏 ${h.beds} bd</span>` : ''}
+        ${h.baths ? `<span>🚿 ${h.baths} ba</span>` : ''}
+        ${h.sqft ? `<span>📐 ${h.sqft.toLocaleString()} SF</span>` : ''}
+      </div>
+      ${h.ppsf ? `<div class="prop-ppsf">$${h.ppsf}/sqft · ${h.year_built ? h.year_built : ''}</div>` : ''}
+      <a class="prop-cta" href="${h.url}" target="_blank">View on Redfin →</a>
+    </div>
+  </div>`;
+}
+
+function skeletons(n=4) {
+  return Array(n).fill('<div class="skel skel-card"></div>').join('');
+}
+
+// ── MARKET STATS ──────────────────────────────────────────────────────────
+async function loadMarketStats() {
+  try {
+    const data = await fetch('/api/market-stats').then(r => r.json());
+    const s    = data.stats || {};
+
+    // Hero sidebar stats (Lexington)
+    const lex = s['Lexington'];
+    if (lex) {
+      document.getElementById('stat-listings').textContent = lex.count;
+      document.getElementById('stat-median').textContent   = fmt(lex.median);
+      document.getElementById('stat-ppsf').textContent     = '$' + lex.avg_ppsf;
+      document.getElementById('stat-dom').textContent      = lex.avg_dom + 'd';
+    }
+
+    // Tickers
+    if (s['Lexington'])  { document.getElementById('t-lex').textContent   = fmt(s['Lexington'].median);  document.getElementById('t-lex-c').textContent  = s['Lexington'].count + ' active'; }
+    if (s['Richmond'])   { document.getElementById('t-ric').textContent   = fmt(s['Richmond'].median);   document.getElementById('t-ric-c').textContent  = s['Richmond'].count + ' active'; }
+    if (s['Georgetown']) { document.getElementById('t-geo').textContent   = fmt(s['Georgetown'].median); document.getElementById('t-geo-c').textContent  = s['Georgetown'].count + ' active'; }
+
+    // Market grid
+    const grid = document.getElementById('market-grid');
+    grid.innerHTML = Object.entries(s).map(([city, d]) => `
+      <div class="market-card">
+        <div class="market-card-city">${city}</div>
+        <div class="market-median">${fmt(d.median)}</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">Median list price</div>
+        <div class="market-row"><span>Active Listings</span><span class="market-val">${d.count}</span></div>
+        <div class="market-row"><span>Low</span><span class="market-val">${fmt(d.low)}</span></div>
+        <div class="market-row"><span>High</span><span class="market-val">${fmt(d.high)}</span></div>
+        <div class="market-row"><span>Avg $/SqFt</span><span class="market-val">$${d.avg_ppsf}</span></div>
+        <div class="market-row"><span>Avg Days on Market</span><span class="market-val">${d.avg_dom}d</span></div>
+      </div>`).join('');
+  } catch(e) {}
+}
+
+// ── BEST DEALS ────────────────────────────────────────────────────────────
+async function loadDeals() {
+  try {
+    const data = await fetch('/api/best-deals').then(r => r.json());
+    const grid = document.getElementById('deals-grid');
+    if (!data.deals?.length) { grid.innerHTML = '<p style="color:var(--muted);">No deals data available.</p>'; return; }
+    grid.innerHTML = data.deals.map(h => propCard(h, 'deal')).join('');
+  } catch(e) { document.getElementById('deals-grid').innerHTML = skeletons(4); }
+}
+
+// ── NEW LISTINGS ──────────────────────────────────────────────────────────
+async function loadNew() {
+  try {
+    const data = await fetch('/api/new-listings').then(r => r.json());
+    const grid = document.getElementById('new-grid');
+    if (!data.listings?.length) { grid.innerHTML = '<p style="color:var(--muted);">No new listings found.</p>'; return; }
+    grid.innerHTML = data.listings.map(h => propCard(h, 'new')).join('');
+  } catch(e) {}
+}
+
+// ── SEARCH ────────────────────────────────────────────────────────────────
+async function applyFilters() {
+  const city = document.getElementById('f-city').value;
+  const beds = document.getElementById('f-beds').value;
+  const max  = document.getElementById('f-max').value;
+  const sort = document.getElementById('f-sort').value;
+  const grid = document.getElementById('search-grid');
+  const cnt  = document.getElementById('result-count');
+  grid.innerHTML = skeletons(6);
+  cnt.textContent = '';
+  try {
+    const url  = `/api/listings?city=${city}&beds=${beds}&max_price=${max}&sort=${sort}`;
+    const data = await fetch(url).then(r => r.json());
+    const list = data.listings || [];
+    cnt.textContent = list.length + ' listings';
+    grid.innerHTML  = list.length ? list.map(h => propCard(h)).join('') : '<p style="color:var(--muted);padding:20px;">No listings found for these filters. Try adjusting your search.</p>';
+  } catch(e) { grid.innerHTML = '<p style="color:var(--muted);padding:20px;">Error loading listings.</p>'; }
+}
+
+function heroSearch() {
+  document.getElementById('f-city').value = document.getElementById('h-city').value;
+  document.getElementById('f-beds').value = document.getElementById('h-beds').value;
+  document.getElementById('f-max').value  = document.getElementById('h-price').value;
+  document.getElementById('search').scrollIntoView({behavior:'smooth'});
+  applyFilters();
+}
+
+// ── CONTACT ───────────────────────────────────────────────────────────────
+async function submitContact() {
+  const payload = {
+    name:    document.getElementById('c-name').value.trim(),
+    email:   document.getElementById('c-email').value.trim(),
+    phone:   document.getElementById('c-phone').value.trim(),
+    type:    document.getElementById('c-type').value,
+    message: document.getElementById('c-msg').value.trim(),
+  };
+  const resp = document.getElementById('c-resp');
+  if (!payload.name || !payload.email || !payload.type) {
+    resp.style.display = 'block'; resp.style.color = '#ff8080';
+    resp.textContent = 'Please fill in name, email, and what you\'re looking for.';
+    return;
+  }
+  try {
+    await fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+    resp.style.display = 'block'; resp.style.color = 'var(--gold)';
+    resp.textContent = '✦ Message sent! Christy will be in touch within 24 hours.';
+    ['c-name','c-email','c-phone','c-msg'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('c-type').value = '';
+  } catch(e) {
+    resp.style.display = 'block'; resp.style.color = '#ff8080';
+    resp.textContent = 'Error sending — please call (859) 469-9429 directly.';
+  }
+}
+
+// ── INIT ─────────────────────────────────────────────────────────────────
+loadMarketStats();
+loadDeals();
+loadNew();
+applyFilters();
+</script>
+</body>
+</html>
