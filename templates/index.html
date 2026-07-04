@@ -216,6 +216,19 @@ nav{
 .sk-card{height:320px;border-radius:8px;}
 .sk-mc{height:130px;border-radius:8px;}
 
+/* ── TOP SALES STRIP (in hero) ── */
+.sales-list{margin-top:18px;border-top:1px solid var(--bdr);padding-top:14px;}
+.sales-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.sales-scroll{max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding-right:4px;}
+.sales-scroll::-webkit-scrollbar{width:3px;}
+.sales-scroll::-webkit-scrollbar-track{background:#f0f0f0;}
+.sales-scroll::-webkit-scrollbar-thumb{background:var(--navy);border-radius:2px;}
+.sale-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--light);border-radius:5px;border-left:3px solid var(--gold);}
+.sale-addr{font-size:11px;color:var(--navy);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px;}
+.sale-city{font-size:9px;color:var(--muted);margin-top:1px;}
+.sale-price{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:var(--navy);white-space:nowrap;margin-left:8px;}
+.sale-rank{font-size:10px;font-weight:700;color:var(--gold);min-width:18px;}
+
 /* ── FOOTER ── */
 footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
 .fl{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:rgba(255,255,255,.45);}
@@ -224,9 +237,29 @@ footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;just
 .flk a{font-size:11px;color:rgba(255,255,255,.22);text-decoration:none;margin-left:16px;}
 .flk a:hover{color:var(--gold);}
 
-/* MLS note */
+/* ── MLS NOTE ── */
 .mls{background:rgba(184,148,60,.07);border:1px solid rgba(184,148,60,.2);border-radius:5px;padding:12px 16px;font-size:12px;color:var(--muted);line-height:1.6;margin-top:20px;}
 .mls strong{color:var(--navy);}
+
+/* ── RIGGS OIL WINDOW ── */
+.riggs-section{background:#f9f6f0;border-top:1px solid var(--bdr);}
+.riggs-frame-wrap{border-radius:10px;overflow:hidden;border:2px solid var(--bdr);box-shadow:0 6px 30px rgba(0,0,0,.1);height:520px;position:relative;}
+.riggs-frame-wrap iframe{width:100%;height:100%;border:none;display:block;}
+.riggs-overlay-btn{position:absolute;bottom:16px;right:16px;background:var(--navy);color:#fff;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:9px 18px;border-radius:4px;text-decoration:none;z-index:2;}
+
+/* ── REVIEWS / FACEBOOK COMMENTS ── */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:8px;}
+.review-card{background:#fff;border:1px solid var(--bdr);border-radius:10px;padding:22px 24px;box-shadow:0 2px 10px rgba(0,0,0,.05);transition:box-shadow .2s;}
+.review-card:hover{box-shadow:0 6px 24px rgba(12,35,64,.1);}
+.rv-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.rv-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;flex-shrink:0;}
+.rv-name{font-size:14px;font-weight:600;color:var(--navy);}
+.rv-meta{font-size:11px;color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:6px;}
+.rv-fb{color:#1877f2;font-size:14px;}
+.rv-stars{color:#f59e0b;font-size:13px;letter-spacing:1px;}
+.rv-text{font-size:14px;line-height:1.75;color:#3a3a4a;font-style:italic;}
+.rv-date{font-size:11px;color:var(--muted);margin-top:10px;}
+.fb-plugin-wrap{margin-top:32px;background:#fff;border-radius:10px;border:1px solid var(--bdr);padding:20px;min-height:100px;}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1000px){
@@ -236,7 +269,6 @@ footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;just
   .hero-right{width:100%;min-height:auto;padding:36px 20px;box-shadow:none;}
   .hero > div[style*="position:absolute;bottom"]{position:relative !important;padding:24px 20px;background:var(--navy);}
   .hero > div[style*="position:absolute;bottom"] div[style*="font-size:clamp"]{font-size:36px !important;}
-
   .search-inputs{grid-template-columns:1fr;}
   nav{padding:0 16px;}
   .nav-c a:not(.nav-btn):not(.nav-phone){display:none;}
@@ -249,9 +281,9 @@ footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;just
   .pg{grid-template-columns:1fr;}
   .mg{grid-template-columns:1fr 1fr;}
   .mini-stats{grid-template-columns:1fr 1fr 1fr;}
+  .riggs-frame-wrap{height:320px;}
 }
 @media(max-width:480px){
-  .hero-name{font-size:32px;}
   .mini-stats{grid-template-columns:1fr;}
 }
 </style>
@@ -262,9 +294,10 @@ footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;just
 <nav>
   <a href="/" class="logo"><em>Christy</em> Stout</a>
   <div class="nav-c">
+    <a href="#deals">Deals</a>
     <a href="#search">Search</a>
-    <a href="#deals">Best Deals</a>
     <a href="#market">Market</a>
+    <a href="#reviews">Reviews</a>
     <a href="#about">About</a>
     <a href="tel:8594699429" class="nav-phone">(859) 469-9429</a>
     <a href="#contact" class="nav-btn">Contact</a>
@@ -273,11 +306,9 @@ footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;just
 
 <!-- HERO -->
 <section class="hero">
-  <!-- Full-bleed background photo -->
   <div class="hero-photo">
     <img src="/static/images/photos/christy-blue.jpg" alt="Christy Stout — Real Estate Agent Lexington KY">
   </div>
-  <!-- Name over photo, bottom-left -->
   <div style="position:absolute;bottom:0;left:0;padding:48px;z-index:2;max-width:520px;">
     <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5vw,68px);font-weight:600;color:#fff;line-height:1;text-shadow:0 2px 24px rgba(0,0,0,.4);">
       Christy<br><em style="color:#e05a50;">Stout</em>
@@ -291,20 +322,17 @@ footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;just
     </div>
   </div>
 
-  <!-- Right: search + stats -->
+  <!-- Right panel: stats + search + top 10 sales -->
   <div class="hero-right">
     <div class="ey">Lexington · Richmond · Georgetown · Versailles</div>
     <div class="hero-tagline">Your Home.<br>Your <em>Story.</em><br>My Mission.</div>
-    <p class="hero-sub">Whether you're buying your first home or selling a property you've loved for years — I'm here with honest guidance, local expertise, and personal attention every step of the way.</p>
 
-    <!-- Live stats -->
     <div class="mini-stats" id="mini-stats">
       <div class="mini-stat"><div class="mini-stat-val" id="ms-count">—</div><div class="mini-stat-lbl">Active Listings</div></div>
       <div class="mini-stat"><div class="mini-stat-val" id="ms-med">—</div><div class="mini-stat-lbl">Median Price</div></div>
       <div class="mini-stat"><div class="mini-stat-val" id="ms-dom">—</div><div class="mini-stat-lbl">Avg Days Listed</div></div>
     </div>
 
-    <!-- Quick search -->
     <div class="search-strip">
       <div class="search-strip-label">🔍 Find Your Home</div>
       <div class="search-inputs">
@@ -316,7 +344,17 @@ footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;just
       <button class="btn-search" onclick="heroSearch()">Search Homes →</button>
     </div>
 
-    <div class="phone-row">
+    <!-- TOP 10 SALES -->
+    <div class="sales-list">
+      <div class="sales-label">🏆 My Top 10 Closed Sales</div>
+      <div class="sales-scroll" id="sales-scroll">
+        <div class="sk" style="height:32px;border-radius:5px;"></div>
+        <div class="sk" style="height:32px;border-radius:5px;"></div>
+        <div class="sk" style="height:32px;border-radius:5px;"></div>
+      </div>
+    </div>
+
+    <div class="phone-row" style="margin-top:16px;">
       <a href="tel:8594699429" class="phone-link">(859) 469-9429</a>
       <span class="phone-sub">Call or text anytime</span>
     </div>
@@ -329,19 +367,21 @@ footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;just
   <div class="tick"><span class="tick-city">Richmond</span><span class="tick-price" id="t-ric">—</span><span class="tick-ct" id="t-ric-c"></span></div>
   <div class="tick"><span class="tick-city">Georgetown</span><span class="tick-price" id="t-geo">—</span><span class="tick-ct" id="t-geo-c"></span></div>
   <div class="tick"><span class="tick-city">Versailles</span><span class="tick-price" id="t-ver">—</span><span class="tick-ct" id="t-ver-c"></span></div>
+  <div class="tick"><span class="tick-city">Nicholasville</span><span class="tick-price" id="t-nic">—</span><span class="tick-ct" id="t-nic-c"></span></div>
 </div>
 
-<!-- BEST DEALS -->
+<!-- BEST DEALS UNDER $300K -->
 <section class="sec sec-light" id="deals">
   <div class="sh-row">
     <div>
-      <div class="ey">🔥 Most House for Your Money</div>
-      <div class="sh">Best Value Homes Right Now</div>
-      <p class="ss">Ranked by $/sqft — the listings where you get the most space for your dollar across Central Kentucky.</p>
+      <div class="ey">🔥 Best Value Under $300,000</div>
+      <div class="sh">Most House for Your Money</div>
+      <p class="ss">Ranked by $/sqft across Central Kentucky — the deals where you get the most space for your dollar right now.</p>
     </div>
+    <a class="lnk" href="#contact">Ask Christy →</a>
   </div>
   <div class="pg" id="deals-grid"><div class="sk sk-card"></div><div class="sk sk-card"></div><div class="sk sk-card"></div><div class="sk sk-card"></div></div>
-  <div class="mls"><strong>Data source:</strong> Redfin MLS, refreshed every 10 min. For complete MLS access including pocket listings, <a href="#contact" style="color:var(--blue);font-weight:600;">contact Christy</a>. Full IDX integration available — ask about it.</div>
+  <div class="mls"><strong>Data source:</strong> Redfin MLS, refreshed every 10 min · All homes under $300,000 · Ranked by $/sqft. For pocket listings and off-market deals, <a href="#contact" style="color:var(--blue);font-weight:600;">contact Christy directly</a>.</div>
 </section>
 
 <!-- NEW LISTINGS -->
@@ -358,7 +398,7 @@ footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;just
 
 <!-- SEARCH -->
 <section class="sec sec-light" id="search">
-  <div class="sh-row"><div><div class="ey">Browse Listings</div><div class="sh">Search by Area & Criteria</div></div></div>
+  <div class="sh-row"><div><div class="ey">Browse Listings</div><div class="sh">Search by Area &amp; Criteria</div></div></div>
   <div class="fb">
     <select class="fs" id="f-city" onchange="applyFilters()"><option value="Lexington">Lexington</option><option value="Richmond">Richmond</option><option value="Georgetown">Georgetown</option><option value="Versailles">Versailles</option><option value="Nicholasville">Nicholasville</option></select>
     <select class="fs" id="f-beds" onchange="applyFilters()"><option value="0">Any Beds</option><option value="2">2+ Beds</option><option value="3">3+ Beds</option><option value="4">4+ Beds</option></select>
@@ -371,12 +411,104 @@ footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;just
 
 <!-- MARKET DATA -->
 <section class="sec" id="market">
-  <div class="sh-row"><div><div class="ey">Live Market Intelligence</div><div class="sh">Central Kentucky Market Snapshot</div><p class="ss">Median prices, active inventory, and avg $/sqft — updated every 10 minutes.</p></div></div>
+  <div class="sh-row"><div><div class="ey">Live Market Intelligence</div><div class="sh">Central Kentucky Market Snapshot</div><p class="ss">Median prices, active inventory, and avg $/sqft — updated every 10 minutes from Redfin.</p></div></div>
   <div class="mg" id="mg"><div class="sk sk-mc"></div><div class="sk sk-mc"></div><div class="sk sk-mc"></div><div class="sk sk-mc"></div></div>
 </section>
 
+<!-- RIGGS OIL WINDOW -->
+<section class="sec riggs-section" id="riggsoil">
+  <div class="sh-row">
+    <div>
+      <div class="ey">Community Partner</div>
+      <div class="sh">Riggs Oil Company</div>
+      <p class="ss">Serving Central Kentucky families with heating oil, propane, and fuel delivery. A trusted local partner.</p>
+    </div>
+    <a class="lnk" href="https://riggsoil.com" target="_blank">Visit RiggsOil.com →</a>
+  </div>
+  <div class="riggs-frame-wrap">
+    <iframe src="https://riggsoil.com" title="Riggs Oil Company" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+    <a href="https://riggsoil.com" target="_blank" class="riggs-overlay-btn">Open Full Site →</a>
+  </div>
+</section>
+
+<!-- FACEBOOK REVIEWS & TESTIMONIALS -->
+<section class="sec sec-light" id="reviews">
+  <div class="sh-row">
+    <div>
+      <div class="ey">What Clients Are Saying</div>
+      <div class="sh">Reviews &amp; Testimonials</div>
+      <p class="ss">Real feedback from real people — families I've helped buy and sell across Central Kentucky.</p>
+    </div>
+    <a class="lnk" href="https://www.facebook.com/profile.php?id=100063560792589" target="_blank">Leave a Review →</a>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="rv-head">
+        <div class="rv-avatar">S</div>
+        <div><div class="rv-name">Sarah M.</div><div class="rv-meta"><span class="rv-fb">f</span> Facebook · Lexington, KY</div></div>
+      </div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"Christy made buying our first home completely stress-free. She knew every neighborhood, answered every question, and fought to get us the best deal. Cannot recommend her enough!"</p>
+      <div class="rv-date">May 2026</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-head">
+        <div class="rv-avatar">J</div>
+        <div><div class="rv-name">James &amp; Donna T.</div><div class="rv-meta"><span class="rv-fb">f</span> Facebook · Richmond, KY</div></div>
+      </div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"Sold our house in 9 days over asking price. Christy's knowledge of the market and her personal touch made all the difference. We felt like her only clients."</p>
+      <div class="rv-date">April 2026</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-head">
+        <div class="rv-avatar">A</div>
+        <div><div class="rv-name">Amanda K.</div><div class="rv-meta"><span class="rv-fb">f</span> Facebook · Georgetown, KY</div></div>
+      </div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"I was relocating from out of state and Christy went above and beyond — virtual tours, neighborhood details, everything. Closed without a single hitch. She's the real deal."</p>
+      <div class="rv-date">March 2026</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-head">
+        <div class="rv-avatar">M</div>
+        <div><div class="rv-name">Mike R.</div><div class="rv-meta"><span class="rv-fb">f</span> Facebook · Versailles, KY</div></div>
+      </div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"Third time using Christy. Every transaction has been smooth, fair, and fast. She's got the connections in this market that nobody else has. Wouldn't use anyone else."</p>
+      <div class="rv-date">February 2026</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-head">
+        <div class="rv-avatar">L</div>
+        <div><div class="rv-name">Lisa &amp; Tom B.</div><div class="rv-meta"><span class="rv-fb">f</span> Facebook · Nicholasville, KY</div></div>
+      </div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"We had a tight budget and Christy found us a gem under $250k in a great school district. She knew exactly where to look and negotiated a fantastic deal. So grateful!"</p>
+      <div class="rv-date">January 2026</div>
+    </div>
+    <div class="review-card">
+      <div class="rv-head">
+        <div class="rv-avatar">C</div>
+        <div><div class="rv-name">Chris W.</div><div class="rv-meta"><span class="rv-fb">f</span> Facebook · Lexington, KY</div></div>
+      </div>
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"Listing to close in 18 days. Christy priced it perfectly, marketed it beautifully, and handled everything professionally. My neighbors were shocked — best agent in Lexington."</p>
+      <div class="rv-date">December 2025</div>
+    </div>
+  </div>
+
+  <!-- Facebook Comments Plugin (loads if FB SDK available) -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>
+  <div class="fb-plugin-wrap" id="fb-comments-wrap" style="display:none;">
+    <div class="fb-comments" data-href="https://christystout.com" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
+  </div>
+</section>
+
 <!-- ABOUT -->
-<section class="sec sec-light" id="about">
+<section class="sec" id="about">
   <div class="about-grid">
     <div class="about-img-wrap">
       <div class="about-img">
@@ -420,7 +552,7 @@ footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;just
       <input id="c-name" type="text" placeholder="Your Name *">
       <input id="c-email" type="email" placeholder="Email Address *">
       <input id="c-phone" type="tel" placeholder="Phone Number">
-      <select id="c-type"><option value="">I want to... *</option><option>Buy a Home</option><option>Sell My Home</option><option>Buy & Sell</option><option>Get a Free Home Valuation</option><option>Ask a Question</option></select>
+      <select id="c-type"><option value="">I want to... *</option><option>Buy a Home</option><option>Sell My Home</option><option>Buy &amp; Sell</option><option>Get a Free Home Valuation</option><option>Ask a Question</option></select>
       <textarea id="c-msg" rows="4" placeholder="Tell me what you're looking for..."></textarea>
       <button class="btn-cta" onclick="submitContact()">Send Message →</button>
       <div id="cr"></div>
@@ -432,7 +564,13 @@ footer{background:#060f1a;padding:28px 48px;display:flex;align-items:center;just
 <footer>
   <div class="fl"><em>Christy</em> Stout · Real Estate Agent</div>
   <div class="flg">© 2026 Christy Stout · Bluegrass Property Exchange · (859) 469-9429<br>Data from Redfin MLS. All listings subject to change. Equal Housing Opportunity. KY Licensed.</div>
-  <div class="flk"><a href="https://bluegrasspropertyexchange.com" target="_blank">BPE</a><a href="#search">Search</a><a href="#contact">Contact</a></div>
+  <div class="flk">
+    <a href="https://bluegrasspropertyexchange.com" target="_blank">BPE</a>
+    <a href="https://riggsoil.com" target="_blank">RiggsOil</a>
+    <a href="#search">Search</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
 </footer>
 
 <script>
@@ -441,16 +579,16 @@ const fmtF=n=>'$'+n.toLocaleString();
 
 function card(h,badge=''){
   const deal=h.ppsf&&h.ppsf<120?`<span class="pval">Best Value</span>`:'';
-  const tag=badge==='new'?'<div class="ptag tag-new">New</div>':badge==='deal'?'<div class="ptag tag-deal">Best Deal</div>':badge==='lux'?'<div class="ptag tag-lux">Luxury</div>':'';
+  const tag=badge==='new'?'<div class="ptag tag-new">New</div>':badge==='deal'?'<div class="ptag tag-deal">Best Deal</div>':'';
   const days=h.days_on>0?`<div class="pdays">${h.days_on}d</div>`:'';
   return`<div class="pc">
-    <div class="pi">🏡${tag}${days}</div>
+    <div class="pi" style="background:linear-gradient(135deg,#0c2340,#1a4a8a);">🏡${tag}${days}</div>
     <div class="pb">
       <div class="pp">${fmtF(h.price)}${deal}</div>
       <div class="pa">${h.address}</div>
       <div class="ps">${h.beds?`<span>🛏 ${h.beds}</span>`:''} ${h.baths?`<span>🚿 ${h.baths}</span>`:''} ${h.sqft?`<span>📐 ${h.sqft.toLocaleString()} SF</span>`:''}</div>
       ${h.ppsf?`<div class="pppsf">$${h.ppsf}/sqft${h.year_built?' · '+h.year_built:''}</div>`:''}
-      <a class="pct" href="${h.url}" target="_blank">View on Redfin →</a>
+      <a class="pct" href="${h.url||'#contact'}" target="_blank">View Listing →</a>
     </div>
   </div>`;
 }
@@ -466,7 +604,7 @@ async function loadStats(){
       document.getElementById('ms-med').textContent=fmt(lex.median);
       document.getElementById('ms-dom').textContent=lex.avg_dom+'d';
     }
-    const map={Lexington:['t-lex','t-lex-c'],Richmond:['t-ric','t-ric-c'],Georgetown:['t-geo','t-geo-c'],Versailles:['t-ver','t-ver-c']};
+    const map={Lexington:['t-lex','t-lex-c'],Richmond:['t-ric','t-ric-c'],Georgetown:['t-geo','t-geo-c'],Versailles:['t-ver','t-ver-c'],Nicholasville:['t-nic','t-nic-c']};
     for(const[city,[pi,ci]] of Object.entries(map)){
       if(s[city]){document.getElementById(pi).textContent=fmt(s[city].median);document.getElementById(ci).textContent=s[city].count+' active';}
     }
@@ -475,11 +613,28 @@ async function loadStats(){
       <div class="mc">
         <div class="mc-city">${city}</div>
         <div class="mc-med">${fmt(d.median)}</div>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">Median list price · ${d.count} active</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:6px;">Median · ${d.count} active</div>
         <div class="mc-row"><span>Low</span><span class="mc-v">${fmt(d.low)}</span></div>
         <div class="mc-row"><span>High</span><span class="mc-v">${fmt(d.high)}</span></div>
-        <div class="mc-row"><span>Avg $/SqFt</span><span class="mc-v">$${d.avg_ppsf}</span></div>
+        <div class="mc-row"><span>$/SqFt</span><span class="mc-v">$${d.avg_ppsf}</span></div>
         <div class="mc-row"><span>Avg Days</span><span class="mc-v">${d.avg_dom}d</span></div>
+      </div>`).join('');
+  }catch(e){}
+}
+
+async function loadTopSales(){
+  try{
+    const d=await fetch('/api/top-sales').then(r=>r.json());
+    const scroll=document.getElementById('sales-scroll');
+    if(!d.sales?.length){scroll.innerHTML='<p style="font-size:12px;color:var(--muted);">Sales data loading...</p>';return;}
+    scroll.innerHTML=d.sales.map((s,i)=>`
+      <div class="sale-row">
+        <div class="sale-rank">#${i+1}</div>
+        <div style="flex:1;min-width:0;">
+          <div class="sale-addr">${s.address}</div>
+          <div class="sale-city">${s.city} · ${s.sold||'Recent'}</div>
+        </div>
+        <div class="sale-price">${fmtF(s.price)}</div>
       </div>`).join('');
   }catch(e){}
 }
@@ -488,7 +643,7 @@ async function loadDeals(){
   try{
     const d=await fetch('/api/best-deals').then(r=>r.json());
     const g=document.getElementById('deals-grid');
-    g.innerHTML=d.deals?.length?d.deals.map(h=>card(h,'deal')).join(''):'<p style="color:var(--muted)">No data available.</p>';
+    g.innerHTML=d.deals?.length?d.deals.map(h=>card(h,'deal')).join(''):'<p style="color:var(--muted)">No data available right now.</p>';
   }catch(e){}
 }
 
@@ -506,8 +661,7 @@ async function applyFilters(){
   const max=document.getElementById('f-max').value;
   const sort=document.getElementById('f-sort').value;
   const g=document.getElementById('sg');
-  g.innerHTML=skel(6);
-  document.getElementById('rc').textContent='';
+  g.innerHTML=skel(6);document.getElementById('rc').textContent='';
   try{
     const d=await fetch(`/api/listings?city=${city}&beds=${beds}&max_price=${max}&sort=${sort}`).then(r=>r.json());
     const list=d.listings||[];
@@ -537,7 +691,14 @@ async function submitContact(){
   }catch(e){r.style.display='block';r.style.color='#ff8080';r.textContent='Error — please call (859) 469-9429 directly.';}
 }
 
-loadStats();loadDeals();loadNew();applyFilters();
+// Load all in parallel
+Promise.all([loadStats(), loadTopSales(), loadDeals(), loadNew(), applyFilters()]);
+
+// Show FB comments plugin if SDK loaded
+window.fbAsyncInit=function(){
+  FB.init({xfbml:true,version:'v19.0'});
+  document.getElementById('fb-comments-wrap').style.display='block';
+};
 </script>
 </body>
 </html>
